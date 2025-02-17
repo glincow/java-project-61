@@ -1,19 +1,22 @@
 package hexlet.code;
 
+import hexlet.code.games.Game;
 import java.util.Scanner;
 
-public class Game {
+public class Engine {
 
-    public static void runGameEven() {
+    public static void runGame(Game game) {
         String userName = Cli.greetUser();
-        int maxRounds = 3;
         int roundCount = 0;
-        while (roundCount < maxRounds) {
-            int number =  (int) (Math.random() * 100 + 1);
-            String answer = number % 2 == 0 ? "yes" : "no";
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-            System.out.println("Question: " + number);
+        while (roundCount < Game.MAX_ROUNDS_COUNT) {
+            String[] questionAndAnswerArray = game.generateQuestionAndAnswer();
+            String question = questionAndAnswerArray[0];
+            String answer = questionAndAnswerArray[1];
+
+            System.out.println(game.getDescription());
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
+
             Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine();
             if (userAnswer.equals(answer)) {
@@ -26,10 +29,8 @@ public class Game {
             }
         }
 
-        if (roundCount == maxRounds) {
+        if (roundCount == Game.MAX_ROUNDS_COUNT) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
-
-
 }

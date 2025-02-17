@@ -1,6 +1,7 @@
 package hexlet.code;
 
 
+import hexlet.code.games.EvenGame;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ public class App {
     public static void main(String[] args) {
         System.out.print("""
                 Please enter the game number and press Enter.
+                3 - Calc
                 2 - Even
                 1 - Greet
                 0 - Exit
@@ -20,7 +22,10 @@ public class App {
                     Cli.greetUser();
                     break;
                 case 2:
-                    Game.runGameEven();
+                    Engine.runGame(new EvenGame());
+                    break;
+                case 3:
+                    Engine.runGame(new CalcGame());
                     break;
                 case 0:
                     Cli.byeUser();
