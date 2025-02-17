@@ -1,10 +1,7 @@
 package hexlet.code;
 
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GCDGame;
-import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -13,6 +10,7 @@ public class App {
     public static void main(String[] args) {
         System.out.print("""
                 Please enter the game number and press Enter.
+                6 - Prime
                 5 - Progression
                 4 - GCD
                 3 - Calc
@@ -38,6 +36,10 @@ public class App {
                     break;
                 case 5:
                     Engine.runGame(new ProgressionGame());
+                    break;
+                case 6:
+                    Engine.runGame(new PrimeGame());
+                    break;
                 case 0:
                     Cli.byeUser();
                     break;
