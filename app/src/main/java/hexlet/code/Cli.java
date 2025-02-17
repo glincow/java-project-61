@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Cli {
@@ -21,5 +22,9 @@ public class Cli {
 
     public static void printUnexistingCommandMessage() {
         System.out.println("This command is not supported...");
+    }
+
+    public static int getRandomInt(int min, int max) {
+        return new Random().nextInt(max - min + 1) + min;
     }
 }
