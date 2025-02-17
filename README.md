@@ -9,5 +9,8 @@
 #### Calc game
 [![asciicast](https://asciinema.org/a/703919.svg)](https://asciinema.org/a/703919)
 
-#### GCD Game
+#### GCD game
 [![asciicast](https://asciinema.org/a/703925.svg)](https://asciinema.org/a/703925)
+
+#### Progression game
+[![asciicast](https://asciinema.org/a/703933.svg)](https://asciinema.org/a/703933)
