@@ -3,10 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 
 public class CalcGame implements Game {
-
     public static final String DESCRIPTION  = "What is the result of the expression?";
     private static final String[] OPERATIONS = {"+", "-", "*"};
-
 
     public String[] generateQuestionAndAnswer() {
         int firstNumber = Cli.getRandomInt(1, 100);
