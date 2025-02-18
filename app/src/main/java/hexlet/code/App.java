@@ -10,6 +10,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+    private static final int EXIT = 0;
+
     public static void main(String[] args) {
         System.out.print("""
                 Please enter the game number and press Enter.
@@ -25,25 +33,25 @@ public class App {
         try {
             int userMenuChoice = scanner.nextInt();
             switch (userMenuChoice) {
-                case 1:
+                case GREET:
                     Cli.greetUser();
                     break;
-                case 2:
+                case EVEN:
                     Engine.runGame(new EvenGame());
                     break;
-                case 3:
+                case CALC:
                     Engine.runGame(new CalcGame());
                     break;
-                case 4:
+                case GCD:
                     Engine.runGame(new GCDGame());
                     break;
-                case 5:
+                case PROGRESSION:
                     Engine.runGame(new ProgressionGame());
                     break;
-                case 6:
+                case PRIME:
                     Engine.runGame(new PrimeGame());
                     break;
-                case 0:
+                case EXIT:
                     Cli.byeUser();
                     break;
                 default:
@@ -52,8 +60,5 @@ public class App {
         } catch (InputMismatchException e) {
             Cli.printUnexistingCommandMessage();
         }
-
-
-
     }
 }

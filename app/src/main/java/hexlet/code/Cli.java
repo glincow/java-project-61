@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Cli {
-    public static String name = "";
+    private static String name = "";
 
     public static String greetUser() {
         System.out.println("Welcome to the Brain Games!");
@@ -12,6 +12,10 @@ public class Cli {
         Scanner scanner = new Scanner(System.in);
         name = scanner.nextLine();
         System.out.println("Hello, " + name + "!");
+        return name;
+    }
+
+    public String getName() {
         return name;
     }
 
