@@ -1,9 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import hexlet.code.Engine;
+import hexlet.code.GameUtils;
 
-public final class ProgressionGame implements Game {
-
+public final class ProgressionGame {
+    public static final int MAX_ROUNDS_COUNT = 3;
     public static final String DESCRIPTION = "What number is missing in the progression?";
     private static final int MIN_PROGRESSION_LENGTH = 5;
     private static final int MAX_PROGRESSION_LENGTH = 10;
@@ -12,12 +14,19 @@ public final class ProgressionGame implements Game {
     private static final int MIN_PROGRESSION_BASE = 1;
     private static final int MAX_PROGRESSION_BASE = 10;
 
-    @Override
-    public String[] generateQuestionAndAnswer() {
-        int progressionLength = Cli.getRandomInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-        int progressionStart = Cli.getRandomInt(MIN_PROGRESSION_START, MAX_PROGRESSION_START);
-        int progressionBase = Cli.getRandomInt(MIN_PROGRESSION_BASE, MAX_PROGRESSION_BASE);
-        int progressionHiddenIndex = Cli.getRandomInt(0, progressionLength - 1);
+    public static void run() {
+        String[][] questionsAndAnswers = new String[MAX_ROUNDS_COUNT][2];
+        for (int i = 0; i < MAX_ROUNDS_COUNT; i++) {
+            questionsAndAnswers[i] = generateQuestionAndAnswer();
+        }
+        Engine.runGame(DESCRIPTION, questionsAndAnswers);
+    }
+
+    public static String[] generateQuestionAndAnswer() {
+        int progressionLength = GameUtils.getRandomInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+        int progressionStart = GameUtils.getRandomInt(MIN_PROGRESSION_START, MAX_PROGRESSION_START);
+        int progressionBase = GameUtils.getRandomInt(MIN_PROGRESSION_BASE, MAX_PROGRESSION_BASE);
+        int progressionHiddenIndex = GameUtils.getRandomInt(0, progressionLength - 1);
 
         StringBuilder question = new StringBuilder();
         int answer = progressionStart + progressionHiddenIndex * progressionBase;
@@ -31,10 +40,5 @@ public final class ProgressionGame implements Game {
         }
 
         return new String[]{question.toString().trim(), String.valueOf(answer)};
-    }
-
-    @Override
-    public String getDescription() {
-        return DESCRIPTION;
     }
 }

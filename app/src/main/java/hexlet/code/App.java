@@ -37,28 +37,28 @@ public class App {
                     Cli.greetUser();
                     break;
                 case EVEN:
-                    Engine.runGame(new EvenGame());
+                    EvenGame.run();
                     break;
                 case CALC:
-                    Engine.runGame(new CalcGame());
+                    CalcGame.run();
                     break;
                 case GCD:
-                    Engine.runGame(new GCDGame());
+                    GCDGame.run();
                     break;
                 case PROGRESSION:
-                    Engine.runGame(new ProgressionGame());
+                    ProgressionGame.run();
                     break;
                 case PRIME:
-                    Engine.runGame(new PrimeGame());
+                    PrimeGame.run();
                     break;
                 case EXIT:
                     Cli.byeUser();
                     break;
                 default:
-                    Cli.printUnexistingCommandMessage();
+                    System.out.println("This command is not supported...");
             }
         } catch (InputMismatchException e) {
-            Cli.printUnexistingCommandMessage();
+            System.out.println("This command is not supported...");
         }
     }
 }

@@ -1,23 +1,26 @@
 package hexlet.code;
 
-import hexlet.code.games.Game;
 import java.util.Scanner;
 
 public class Engine {
 
-    public static void runGame(Game game) {
-        String userName = Cli.greetUser();
-        int roundCount = 0;
-        while (roundCount < Game.MAX_ROUNDS_COUNT) {
-            String[] questionAndAnswerArray = game.generateQuestionAndAnswer();
-            String question = questionAndAnswerArray[0];
-            String answer = questionAndAnswerArray[1];
+    public static void runGame(String mainQuestion, String[][] questionsAndAnswers) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
 
-            System.out.println(game.getDescription());
+        int roundCount = 0;
+        final int MAX_ROUNDS_COUNT = questionsAndAnswers.length;
+        while (roundCount < MAX_ROUNDS_COUNT) {
+            String question = questionsAndAnswers[roundCount][0];
+            String answer = questionsAndAnswers[roundCount][1];
+
+            System.out.println(mainQuestion);
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
 
-            Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine();
             if (userAnswer.equals(answer)) {
                 System.out.println("Correct!");
@@ -29,7 +32,7 @@ public class Engine {
             }
         }
 
-        if (roundCount == Game.MAX_ROUNDS_COUNT) {
+        if (roundCount == MAX_ROUNDS_COUNT) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
