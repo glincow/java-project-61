@@ -12,8 +12,8 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
 
         int roundCount = 0;
-        final int MAX_ROUNDS_COUNT = questionsAndAnswers.length;
-        while (roundCount < MAX_ROUNDS_COUNT) {
+        final int maxRoundsCount = questionsAndAnswers.length;
+        while (roundCount < maxRoundsCount) {
             String question = questionsAndAnswers[roundCount][0];
             String answer = questionsAndAnswers[roundCount][1];
 
@@ -32,7 +32,7 @@ public class Engine {
             }
         }
 
-        if (roundCount == MAX_ROUNDS_COUNT) {
+        if (roundCount == maxRoundsCount) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
