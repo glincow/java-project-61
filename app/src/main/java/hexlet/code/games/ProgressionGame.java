@@ -27,8 +27,14 @@ public final class ProgressionGame {
         int progressionBase = GameUtils.getRandomInt(MIN_PROGRESSION_BASE, MAX_PROGRESSION_BASE);
         int progressionHiddenIndex = GameUtils.getRandomInt(0, progressionLength - 1);
 
-        StringBuilder question = new StringBuilder();
+        String question = getProgression(progressionLength, progressionHiddenIndex, progressionStart, progressionBase);
         int answer = progressionStart + progressionHiddenIndex * progressionBase;
+
+        return new String[]{question, String.valueOf(answer)};
+    }
+
+    private static String getProgression(int progressionLength, int progressionHiddenIndex, int progressionStart, int progressionBase) {
+        StringBuilder question = new StringBuilder();
 
         for (int i = 0; i < progressionLength; i++) {
             if (i == progressionHiddenIndex) {
@@ -37,7 +43,6 @@ public final class ProgressionGame {
                 question.append(progressionStart + progressionBase * i).append(" ");
             }
         }
-
-        return new String[]{question.toString().trim(), String.valueOf(answer)};
+        return question.toString().trim();
     }
 }

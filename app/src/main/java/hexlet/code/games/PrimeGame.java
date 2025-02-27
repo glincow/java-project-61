@@ -19,6 +19,12 @@ public final class PrimeGame {
     public static String[] generateQuestionAndAnswer() {
         int number = GameUtils.getRandomInt(2, MAX_NUMBER);
 
+        String answer = isPrime(number) ? "yes" : "no";
+
+        return new String[]{String.valueOf(number), answer};
+    }
+
+    private static boolean isPrime(int number) {
         boolean isPrime = true;
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
@@ -26,8 +32,6 @@ public final class PrimeGame {
                 break;
             }
         }
-        String answer = isPrime ? "yes" : "no";
-
-        return new String[]{String.valueOf(number), answer};
+        return isPrime;
     }
 }

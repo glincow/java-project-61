@@ -37,8 +37,7 @@ public final class CalcGame {
                 answer = firstNumber * secondNumber;
                 break;
             default:
-                System.out.println("Something went wrong...");
-                return null;
+                throw new RuntimeException("Unknown operation: " + operation);
         }
         return new String[]{question, String.valueOf(answer)};
     }

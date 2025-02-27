@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int MAX_ROUNDS_COUNT = 3;
+
     public static void runGame(String mainQuestion, String[][] questionsAndAnswers) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
@@ -12,8 +14,7 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
 
         int roundCount = 0;
-        final int maxRoundsCount = questionsAndAnswers.length;
-        while (roundCount < maxRoundsCount) {
+        while (roundCount < MAX_ROUNDS_COUNT) {
             String question = questionsAndAnswers[roundCount][0];
             String answer = questionsAndAnswers[roundCount][1];
 
@@ -32,7 +33,7 @@ public class Engine {
             }
         }
 
-        if (roundCount == maxRoundsCount) {
+        if (roundCount == MAX_ROUNDS_COUNT) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
