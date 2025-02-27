@@ -33,7 +33,12 @@ public final class ProgressionGame {
         return new String[]{question, String.valueOf(answer)};
     }
 
-    private static String getProgression(int progressionLength, int progressionHiddenIndex, int progressionStart, int progressionBase) {
+    private static String getProgression(
+            int progressionLength,
+            int progressionHiddenIndex,
+            int progressionStart,
+            int progressionBase
+    ) {
         StringBuilder question = new StringBuilder();
 
         for (int i = 0; i < progressionLength; i++) {
